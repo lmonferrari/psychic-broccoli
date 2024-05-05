@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <script src="./static/bootstrap.min.js"></script>
+    <title>Previsão de admissão</title>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <h2>Previsão</h2>
+                <p class="lead">O fomulário abaixo precisa ser preenchido com as informções solicitadas.</p>
+              </div>
+            <form action={{url_for('predict')}} method="POST">
+                <div class="mb-3">
+                    <label for="nota_exame_ingles" class="form-label">Nota do exame de inglês</label>
+                    <input type="text" class="form-control" id="nota_exame_ingles" name="nota_exame_ingles" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="qi" class="form-label">QI</label>
+                    <input type="text" class="form-control" id="qi" name="qi" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="nota_teste_psico" class="form-label">Nota teste psicotécnico</label>
+                    <input type="text" class="form-control" id="nota_teste_psico" name="nota_teste_psico" required>
+                  </div>
+                <input type="submit" class="btn btn-primary"></input>
+            </form>
+            <div class="mb-2">
+                {% if message%}
+                    <div class="alert alert-primary" role="alert">
+                        Previsão: {{message}}
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>
